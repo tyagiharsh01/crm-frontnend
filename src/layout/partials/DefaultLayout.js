@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import   Entry     from '../../Components/Entry/Entry'
+//import   Entry     from '../../Components/Entry/Entry'
 
 const DefaultLayout = ({children}) => {
   return (

@@ -5,6 +5,7 @@ import DefaultLayout from './layout/partials/DefaultLayout';
 import Dashboard from "../src/Components/dashboard/Dashboard";
 import AddTicket from './Components/New Ticket/AddTicket';
 import TicketListing from './Components/ticket-tabel/TicketListing';
+import Ticket from './Components/ticket/Ticket';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <DefaultLayout>
       {/* <Dashboard></Dashboard> */}
       {/* <AddTicket></AddTicket> */}
-      <TicketListing></TicketListing>
+      {/* <TicketListing></TicketListing> */}
+      <Ticket></Ticket>
       </DefaultLayout>
     </div>
   );
