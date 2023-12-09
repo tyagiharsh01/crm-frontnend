@@ -1,24 +1,29 @@
 import React from 'react';
 import {Table} from 'react-bootstrap'
 
-const TicketTable = () => {
+const TicketTable = ({tickets}) => {
   return (
-    <div><Table>
+    <div><Table striped bordered hover>
         <thead>
             <tr>
-                <th>#</th>
+                <th>id</th>
                 <th>Subjects</th>
                 <th>Status</th>
-                <th>Opened</th>
+                <th>Date</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-               <td>1</td>
-               <td>Ticket Subject</td>
-               <td>Ticket Status</td>
-               <td>Yes</td>
+          {tickets.length>0?(
+            tickets.map((row)=>(            
+            <tr key ={row.id}>
+               <td>{row.id}</td>
+               <td>{row.subject}</td>
+               <td>{row.status}</td>
+               <td>{row.addedAt}</td>
             </tr>
+            ))
+          ):"No Ticket Avaliable"
+          }
         </tbody>
     </Table>
     </div>
