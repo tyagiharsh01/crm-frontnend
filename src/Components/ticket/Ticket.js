@@ -1,14 +1,24 @@
-import { React, useState, useEffect } from 'react';
+import  React,{ useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Pagebreadcrumb from '../breadcrumb/Pagebreadcrumb';
 import tickets from "../../assest/dummy-ticket.json";
 import MassageHisotry from "../massageHistory/MassageHistory";
 import UpdateTicket from '../update-ticket/UpdateTicket';
+import { useParams } from 'react-router-dom';
 
-const ticket = tickets[0];
+
 const Ticket = () => {
+    const {tid} = useParams(); 
     const [massage, setMassage] = useState('');
-    useEffect(() => {}, [massage])
+    const [ticket, setTicket] = useState({});
+    useEffect(  ()=>{
+        if (tid) {
+        const foundTicket = tickets.find((t) => t.id === parseInt(tid, 10));
+        if (foundTicket) {
+            setTicket(foundTicket);
+        }
+    }
+}, [tid,massage]);
     const handleOnChange = (e) => {
         setMassage(e.target.value)
     }
@@ -26,9 +36,9 @@ const Ticket = () => {
             </Row>
             <Row>
                 <Col className="text-weight-bolder text-secondary">
-                    <div className="subject">Subject : {ticket.subject}</div>
-                    <div className="date">Date : {ticket.addedAt}</div>
-                    <div className="status">Status : {ticket.status}</div>
+                    <div className="subject"><b>Subject</b> : {ticket?.subject}</div>
+                    <div className="date"><b>Date</b> : {ticket?.addedAt}</div>
+                    <div className="status"><b>Status</b> : {ticket?.status}</div>
                 </Col>
                 <Col className="text-right">
                     <Button variant="outline-info">Close Ticket</Button>
@@ -36,7 +46,7 @@ const Ticket = () => {
             </Row>
             <Row className='mt-4'>
                 <Col >
-                    <MassageHisotry msg={ticket.history}></MassageHisotry>
+                    <MassageHisotry msg={ticket?.history}></MassageHisotry>
                 </Col>
             </Row>
             <hr />

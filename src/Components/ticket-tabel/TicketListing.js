@@ -3,7 +3,8 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import Pagebreadcrumb from "../breadcrumb/Pagebreadcrumb";
 import SearchForm from "../Serach Form/SearchForm";
 import TicketTable from "./TicketTable";
-import tickets from '../../assest/dummy-ticket.json'
+import tickets from '../../assest/dummy-ticket.json';
+import { Link } from "react-router-dom";
 
 const TicketListing = () => {
     const [str, setStr] = useState("");
@@ -31,7 +32,8 @@ const TicketListing = () => {
             </Row>
             <Row className="mt-4">
                 <Col>
-                    <Button variant="info">Add New Ticket</Button>
+                <Link to ='/addTicket'><Button variant="info">Add New Ticket</Button></Link>
+                    
                 </Col>
                 <Col className="text-right">
                     <SearchForm handleOnChange={handleOnChange} str={str}></SearchForm>
@@ -40,7 +42,7 @@ const TicketListing = () => {
             &nbsp;
             <Row className="mt-4"  >
                 <Col >
-                    <TicketTable tickets ={dispTicket}/> 
+                    <TicketTable alltickets ={dispTicket}/> 
                 </Col>
             </Row>
         </Container>

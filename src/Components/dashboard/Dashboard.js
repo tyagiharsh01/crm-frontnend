@@ -2,6 +2,8 @@ import React from 'react';
 import { Container,Row,Col,Button, } from 'react-bootstrap';
 import  TicketTable  from "../ticket-tabel/TicketTable";
 import Pagebreadcrumb from '../breadcrumb/Pagebreadcrumb';
+import alltickets from "../../assest/dummy-ticket.json"
+import{Link} from 'react-router-dom'
 
 const Dashboard = () => {
   return (
@@ -13,7 +15,7 @@ const Dashboard = () => {
     </Row>
     <Row>
         <Col className='text-center mt-4 mb-2'>
-        <Button variant='info' style={{'color':'white' ,'font':'2rem',padding:"10px,30px"}}>Add new Ticket</Button>
+            <Link to='/addTicket'><Button variant='info' style={{'color':'white' ,'font':'2rem',padding:"10px,30px"}}>Add new Ticket</Button></Link>
         </Col>
     </Row>
     <Row>
@@ -27,10 +29,10 @@ const Dashboard = () => {
         Recently added ticket
         </Col>
     </Row>
-    <hr />
+    
     <Row>
         <Col className='recent-ticket'>
-        <TicketTable></TicketTable>
+        <TicketTable alltickets={alltickets}></TicketTable>
         </Col>
     </Row>
 

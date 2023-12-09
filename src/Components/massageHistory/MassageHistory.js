@@ -2,7 +2,7 @@ import React from 'react';
 import "./massageHistory.css";
 
 const MassageHistory = ({msg}) => {
-    return msg.length > 0 ? (
+    return msg&& msg.length > 0 ? (
         msg.map((row, i) => (
           <div key={i} className='massage-history mt-4'>
             <div className="send">
